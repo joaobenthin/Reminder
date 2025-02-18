@@ -15,13 +15,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let window = UIWindow(windowScene: windowScene)
+        self.window = UIWindow(windowScene: windowScene)
+        
+//        let viewController = UIViewController()
+//        viewController.view.backgroundColor = .red
         
         let navigation = UINavigationController(rootViewController: SplashViewController())
         
-        window.rootViewController = navigation
-        self.window = window
-        window.makeKeyAndVisible()
+        self.window?.rootViewController = navigation
+        
+        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
