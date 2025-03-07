@@ -10,16 +10,16 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var flowController: ReminderFlowController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
+        flowController = ReminderFlowController()
+        let rootViewController = flowController?.start()
         
-        let navigation = UINavigationController(rootViewController: SplashViewController())
-        
-        self.window?.rootViewController = navigation
+        self.window?.rootViewController = rootViewController
         
         self.window?.makeKeyAndVisible()
     }
